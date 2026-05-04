@@ -1,3 +1,5 @@
-export function POST(request) {
-    return new Response(request.headers, {status: 200});
+import User from "../../../../models/user";
+
+export async function POST(req) {
+    let body=await req.json();
 }
