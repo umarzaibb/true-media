@@ -32,7 +32,7 @@ export default function Login() {
         </form>
 
         <p className={styles["login-help"]}>
-          New to TrueMedia? <a href="#">Create an account</a>
+          New to TrueMedia? <a href="/signup">Create an account</a>
         </p>
       </section>
 

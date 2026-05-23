@@ -29,6 +29,7 @@ export default function Signup() {
     .then((res)=>{
       console.log(res);
      if(res.status==201) {
+      localStorage.setItem('email', formValues.email);
      router.push('/verify');
      }
     })
