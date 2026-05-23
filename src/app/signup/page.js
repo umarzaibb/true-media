@@ -2,11 +2,14 @@
 
 import styles from "./signup.module.css";
 import { useState, useEffect } from "react";
+import axios from 'axios';
+import { useRouter } from "next/navigation";
 
 export default function Signup() {
 
+  const router=useRouter();
+
    let [formValues, setFormValues]= useState({
-    name: '',
     email:'',
     password:''
    })
@@ -18,6 +21,16 @@ export default function Signup() {
         return {
             ...prev, [eventName]: value
         }
+    })
+   }
+
+   function onSubmit() {
+    axios.post('http://localhost:3000/api/user', {...formValues})
+    .then((res)=>{
+      console.log(res);
+     if(res.status==201) {
+     router.push('/verify');
+     }
     })
    }
 
@@ -39,21 +52,21 @@ export default function Signup() {
           </p>
         </div>
 
-        <form className={styles["signup-form"]}>
+        <div className={styles["signup-form"]} >
           <label>
             Email address
             <input value={formValues.email} onChange={onChangeForm} type="email" name="email" placeholder="you@example.com" />
           </label>
-          <label>
+          {/* <label>
             Full name
-            <input value={formValues.name} onChange={onChangeForm} type="text" name="name" placeholder="Your name" />
-          </label>
+            <input value={formValues.name} onChange={onChangeForm} type="text" name="name" placeholder="Your name" /> */}
+          {/* </label> */}
           <label>
             Password
             <input type="password" value={formValues.password} onChange={onChangeForm} name="password" placeholder="Create a password" />
           </label>
-          <button type="submit">Create account</button>
-        </form>
+          <button onClick={onSubmit}>Create account</button>
+        </div>
 
         <p className={styles["signup-help"]}>
           Already have an account? <a href="/login">Sign in</a>
