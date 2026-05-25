@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import User from "../../../../../models/user";
 import { v4 as uuidv4 } from "uuid";
+import { NextResponse } from "next/server";
 
 export async function POST(req) {
 
@@ -20,7 +21,7 @@ export async function POST(req) {
 
   let isCorrect=await bcrypt.compare(password, UserExist?.password);
   if(!isCorrect) {
-    return new Response(
+    return NextResponse.json(
       {
         message: "Incorrect password. Please try again",
       },
@@ -34,13 +35,11 @@ export async function POST(req) {
     UserExist.accessTokenExpiry= accessTokenExpiry;
     let isSaved= UserExist.save();
     if(isSaved) {
-        return new Response(
-      {
+        return NextResponse.json({
         message: "Access Granted",
         accessToken
       },
-      { status: 200 },
-    );
+      { status: 200 },)
     }else{
         return new Response(
       {
