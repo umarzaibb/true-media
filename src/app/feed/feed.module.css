@@ -1,0 +1,250 @@
+.feedPage {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fff7ef 0%, #ffe9d6 100%);
+  color: #24150c;
+  padding: 24px;
+}
+
+.shell {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr) 280px;
+  gap: 20px;
+}
+
+.sidebar,
+.rightRail,
+.feedColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.brandCard,
+.trendingCard,
+.composeCard,
+.postCard,
+.profileCard,
+.suggestedCard {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #f3d3b7;
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(255, 122, 24, 0.1);
+}
+
+.brandCard {
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brandCard h1,
+.trendingCard h2,
+.profileCard h2,
+.suggestedCard h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.brandCard p,
+.profileCard p,
+.suggestionItem p,
+.composeBody p,
+.postCard p,
+.sideNav a,
+.trendingCard li {
+  margin: 4px 0 0;
+  color: #6b5343;
+}
+
+.brandMark,
+.avatar,
+.avatarLarge {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff8c3a, #ff6b1a);
+  color: #fff;
+  font-weight: 800;
+}
+
+.brandMark {
+  width: 42px;
+  height: 42px;
+}
+
+.sideNav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.sideNav a {
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.sideNav a:hover {
+  background: #fff3e8;
+}
+
+.trendingCard {
+  padding: 18px;
+}
+
+.trendingCard ul {
+  padding-left: 18px;
+  margin: 12px 0 0;
+}
+
+.composeCard {
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.composeBody {
+  flex: 1;
+}
+
+.composeBody p {
+  margin: 0 0 12px;
+  font-size: 1rem;
+}
+
+.composeActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.composeActions span,
+.tagRow span {
+  background: #fff3e8;
+  color: #ae4e10;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+}
+
+.composeCard button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #ff8c3a, #ff6b1a);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.feedList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.postCard {
+  padding: 20px;
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.postHeader h2,
+.postCard h3 {
+  margin: 0;
+}
+
+.postHeader p {
+  margin: 2px 0 0;
+  font-size: 0.94rem;
+}
+
+.postCard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+}
+
+.avatarLarge {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 10px;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.postActions {
+  display: flex;
+  gap: 20px;
+  color: #8a5b40;
+  font-weight: 700;
+}
+
+.profileCard,
+.suggestedCard {
+  padding: 18px;
+}
+
+.suggestionItem {
+  padding: 12px 0;
+  border-top: 1px solid #f7e0ce;
+}
+
+.suggestionItem:first-of-type {
+  margin-top: 10px;
+}
+
+@media (max-width: 980px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar,
+  .rightRail {
+    order: 2;
+  }
+
+  .feedColumn {
+    order: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .feedPage {
+    padding: 16px;
+  }
+
+  .composeCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .composeCard button {
+    width: 100%;
+  }
+
+  .postActions {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}
