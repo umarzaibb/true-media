@@ -38,6 +38,8 @@ export default function Login() {
           },()=>{
             alert('Login failed! PLease try again.')
           });
+
+          router.push('/feed');
         }
       }).catch(()=>{
       
